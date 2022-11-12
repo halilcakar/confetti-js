@@ -66,6 +66,30 @@ React.useEffect(() => {
 }, []) // add the var dependencies or not
 ```
 
+### Vue 3
+
+#### In <script setup>
+```javascript
+import ConfettiGenerator from 'confetti-js'
+
+const canvas = ref()
+const generator = ref()
+
+onMounted(() => {
+  generator.value = new ConfettiGenerator({ target: canvas })
+  generator.value?.render()
+})
+
+onUnmounted(() => {
+  generator.value?.clear()
+})
+```
+```html
+<template>
+  <canvas ref="canvas"></canvas>
+</template>
+```
+
 done!
 
 ## Options
